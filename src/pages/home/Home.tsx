@@ -2,7 +2,7 @@ import { ProductCard } from "../../components/products/ProductCard";
 import { PRODUCTS } from "../../mocks/products";
 import { useFilter } from "../../context/useFilter";
 import classes from "./Home.module.css";
-import { Sidebar } from "../../components/sidebar/Sidebar";
+import { Sidebar } from "../../components/navigation/Sidebar";
 
 export const Home = () => {
   const { searchText } = useFilter();
