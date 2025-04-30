@@ -14,7 +14,6 @@ export const Home = () => {
   return (
     <>
       <Sidebar />
-
       <section>
         <h1 className={classes.title}>Arena disponible</h1>
         <ul className={classes.list}>
