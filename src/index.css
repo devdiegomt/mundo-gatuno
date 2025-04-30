@@ -1,0 +1,31 @@
+html {
+  height: 100vh;
+}
+
+#root {
+  height: 100vh;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+}
+
+footer {
+  background-color: #1b4001;
+  color: #ffffff;
+  position: fixed;
+  height: 56px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 0;
+  width: 100%;
+}
+/* 
+.primary-color { color: #F0F0F2; }
+.primary-color { color: #1B4001; }
+.primary-color { color: #467302; }
+.primary-color { color: #72A603; }
+.primary-color { color: #A60303; }
+ */

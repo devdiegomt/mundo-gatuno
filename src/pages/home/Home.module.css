@@ -1,0 +1,17 @@
+.title {
+  justify-self: center;
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  padding-left: 0;
+}
+
+@media (min-width: 768px) {
+  .list {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
