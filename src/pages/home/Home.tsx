@@ -1,6 +1,6 @@
 import { ProductCard } from "../../components/products/ProductCard";
 import { PRODUCTS } from "../../mocks/products";
-import { useFilter } from "../../context/useFilter";
+import { useFilter } from "../../hooks/useFilter";
 import classes from "./Home.module.css";
 
 export const Home = () => {
@@ -19,6 +19,11 @@ export const Home = () => {
             <ProductCard key={product.id} pro={product} />
           ))}
         </ul>
+        {filteredCards.length === 0 && (
+          <p className={classes.empty}>
+            Ningun producto coincide con tu búsqueda.
+          </p>
+        )}
       </section>
     </>
   );
