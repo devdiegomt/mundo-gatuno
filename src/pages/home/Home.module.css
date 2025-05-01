@@ -10,8 +10,8 @@
 }
 
 @media (min-width: 768px) {
-  .list {
+/*   .list {
     flex-direction: row;
     flex-wrap: wrap;
-  }
+  } */
 }

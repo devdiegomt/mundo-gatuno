@@ -1,13 +1,42 @@
+/* .circle {
+  background-color: red;
+  top: -100px;
+  width: 70%;
+  height: 20%;
+  position: absolute;
+  align-self: center;
+  border-radius: 50%;
+} */
+
 .nav {
   display: flex;
+  justify-content: space-between;
+  padding: 0 2%;
   align-items: center;
-  background-color: red;
+  background-color: #d9d9d9;
   height: 56px;
   color: white;
-  justify-content: space-around;
+  border-bottom-left-radius: 50% 20%;
+  border-bottom-right-radius: 50% 20%;
+}
+
+.nav__logo {
+  width: 45px;
+}
+
+.nav__input {
+  z-index: 1;
+  justify-self: center;
+}
+
+.nav__list {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 .links {
+  z-index: 1;
   display: flex;
   list-style: none;
   gap: 10px;

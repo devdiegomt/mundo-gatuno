@@ -1,14 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&family=Tagesschrift&display=swap');
+
 html {
   height: 100vh;
 }
 
 #root {
   height: 100vh;
+  font-family: "Tagesschrift", system-ui;
+  display: flex;
+  flex-direction: column;
 }
 
 body {
   margin: 0;
   height: 100vh;
+  background: #FFE6B2 url("./assets/bgfootprints.png");
 }
 
 footer {
