@@ -15,7 +15,6 @@
 }
 
 .nav__input {
-  background: url("../../assets/icons/searchIcon.png") no-repeat right;
   background-color: white;
   height: 35px;
   width: 35%;
@@ -34,9 +33,15 @@
   }
 
   .nav__input {
-    height: 56px;
+    /* height: 56px; */
+    margin: 5px;
     background-color: white;
     width: 90%;
+  }
+
+  .nav__menu-icon {
+    margin-left: 15px;
+    cursor: pointer;
   }
 }
 
