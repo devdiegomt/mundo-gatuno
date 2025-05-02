@@ -21,7 +21,9 @@ import classes from "./MainNavigation.module.css";
 
 import { Link, useLocation } from "react-router-dom";
 
-export const MainNavigation = () => {
+export const MainNavigation: React.FC<{ onOpenMenu: () => void }> = ({
+  onOpenMenu,
+}) => {
   const { searchText, setSearchText } = useFilter();
   const [isSearching, setIsSearching] = useState(false);
   const width = useWindowWidth();
@@ -96,7 +98,12 @@ export const MainNavigation = () => {
   );
 
   const menuIconElement = (
-    <img src={menuIcon} alt="Menu Icon" className={classes["nav__menu-icon"]} />
+    <img
+      src={menuIcon}
+      alt="Menu Icon"
+      className={classes["nav__menu-icon"]}
+      onClick={onOpenMenu}
+    />
   );
 
   return (

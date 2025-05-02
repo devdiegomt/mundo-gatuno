@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&family=Tagesschrift&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&family=Tagesschrift&display=swap");
 
 html {
   height: 100vh;
@@ -14,19 +14,18 @@ html {
 body {
   margin: 0;
   height: 100vh;
-  background: #FFE6B2 url("./assets/bgfootprints.png");
+  background: #ffe6b2 url("./assets/bgfootprints.png");
 }
 
 footer {
   background-color: #1b4001;
+  padding: 15px;
   color: #ffffff;
-  position: fixed;
   height: 56px;
   display: flex;
   justify-content: center;
   align-items: center;
   bottom: 0;
-  width: 100%;
 }
 /* 
 .primary-color { color: #F0F0F2; }
