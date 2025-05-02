@@ -1,6 +1,7 @@
-/* Atoms */
+/* Components */
 
-import { Input } from "../atoms/Input";
+import { Input } from "../common/input/Input";
+import { NavItems } from "../common/nav-items/NavItems";
 
 /* Hooks */
 
@@ -19,7 +20,7 @@ import classes from "./MainNavigation.module.css";
 
 /* React Router */
 
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 export const MainNavigation: React.FC<{ onOpenMenu: () => void }> = ({
   onOpenMenu,
@@ -77,26 +78,6 @@ export const MainNavigation: React.FC<{ onOpenMenu: () => void }> = ({
     />
   );
 
-  const linksElements = (
-    <ul className={classes.links}>
-      <li>
-        <Link className={classes.link} to="/">
-          Home
-        </Link>
-      </li>
-      <li>
-        <Link className={classes.link} to="/about-us">
-          Sobre Nosotros
-        </Link>
-      </li>
-      <li>
-        <Link className={classes.link} to="/contact-us">
-          Contacto
-        </Link>
-      </li>
-    </ul>
-  );
-
   const menuIconElement = (
     <img
       src={menuIcon}
@@ -112,7 +93,7 @@ export const MainNavigation: React.FC<{ onOpenMenu: () => void }> = ({
         {location.pathname !== "/" ? (
           <>
             {logoImage}
-            {linksElements}
+            <NavItems />
           </>
         ) : (
           <>
@@ -147,7 +128,7 @@ export const MainNavigation: React.FC<{ onOpenMenu: () => void }> = ({
                   name="search"
                   className={classes["nav__input"]}
                 />
-                {linksElements}
+                <NavItems />
               </>
             )}
           </>
