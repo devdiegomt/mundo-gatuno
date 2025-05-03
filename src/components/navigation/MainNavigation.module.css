@@ -11,7 +11,7 @@
 }
 
 .nav__logo {
-  width: 45px;
+  height: inherit;
 }
 
 .nav__input {
@@ -27,11 +27,15 @@
   letter-spacing: 0.05em;
 }
 
-@media (max-width: 768px) {
-  .nav {
-    height: 90px;
-  }
+.nav__search-icon {
+  cursor: pointer;
+}
 
+.nav__x-icon {
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
   .nav__input {
     /* height: 56px; */
     margin: 5px;
