@@ -1,0 +1,36 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  width: 70%;
+  height: 100vh;
+  background-color: #d9d9d9;
+  top: 0;
+  right: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.sidebar__hidden {
+  display: none;
+}
+
+.sidebar__list {
+  list-style: none;
+  padding: 0;
+  margin: 0 10px;
+}
+
+.sidebar__logo {
+  width: 10rem;
+  align-self: center;
+  margin: 50px 0;
+}
+
+.sidebar__x {
+  width: 32px;
+  z-index: 1;
+  align-self: end;
+  padding: 10px;
+  cursor: pointer;
+}

@@ -1,0 +1,22 @@
+.aboutus__title {
+  text-align: center;
+}
+
+.aboutus__text {
+  text-align: center;
+}
+
+.aboutus__social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.aboutus__social--link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  gap: 3px;
+  color: #000;
+}
