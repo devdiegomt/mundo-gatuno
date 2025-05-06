@@ -1,4 +1,5 @@
-import { productProps } from "../../types/products/product";
+import { Link } from "react-router-dom";
+import { ProductProps } from "../../types/products/product";
 import classes from "./ProductCard.module.css";
 
 function formatToCOP(number: number) {
@@ -10,24 +11,34 @@ function formatToCOP(number: number) {
   return formatter.format(number);
 }
 
-export const ProductCard: React.FC<productProps> = ({
-  pro: { title, price, description, aroma, image, quantity },
+export const ProductCard: React.FC<{ pro: ProductProps }> = ({
+  pro: { _id, title, price, description, aroma, image, quantity },
 }) => {
   return (
     <li className={classes.card}>
       {image && (
-        <div className={classes["image-container"]}>
-          <img src={image} alt={title} className={classes.image} />
+        <div className={classes["card__image-container"]}>
+          <img
+            src={image}
+            alt={title}
+            className={classes["card__image-container--img"]}
+          />
         </div>
       )}
-      <div className={classes.info}>
+      <div className={classes["card__info"]}>
         <h3>{title}</h3>
-        <p>{formatToCOP(price)}</p>
-        <p>{description}</p>
         <p>
+          <b>{formatToCOP(price)}</b>
+          <br />
+          {description}
+          <br />
           En stock: <b>{quantity}</b>
+          <br />
+          {aroma}
         </p>
-        <p>{aroma}</p>
+        <Link to={`/${_id}`} type="button" className={classes["card__button"]}>
+          Ver Detalles
+        </Link>
       </div>
     </li>
   );

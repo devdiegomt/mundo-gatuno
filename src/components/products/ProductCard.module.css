@@ -15,17 +15,17 @@
   transition: transform 0.3s ease;
 }
 
-.card .image {
+.card__image-container--img {
   height: 200px;
   object-fit: cover;
   border-radius: 10px 10px 0 0;
 }
 
-.image-container {
+.card__image-container {
   padding: 10px;
 }
 
-.info {
+.card__info {
   text-align: center;
   display: flex;
   width: 50%;
@@ -33,17 +33,31 @@
   padding: 10px;
 }
 
-.info h3 {
+.card__info h3 {
   font-size: 18px;
   margin-bottom: 5px;
 }
 
-.info p {
+.card__info p {
   font-size: 14px;
   color: #666;
   margin-bottom: 10px;
 }
 
+.card__button {
+  padding: 5px;
+  border: none;
+  background-color: #ffe6b2;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 15px;
+  text-decoration: none;
+  color: #000;
+}
+
+.card__button:hover {
+  background-color: #f7dfac;
+}
 @media (min-width: 768px) {
   .card {
     width: 500px;

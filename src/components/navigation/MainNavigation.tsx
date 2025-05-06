@@ -1,26 +1,25 @@
-/* Components */
+/* React and React Router */
 
-import { Input } from "../common/input/Input";
-import { NavItems } from "../common/nav-items/NavItems";
+import { useState } from "react";
+import { useLocation } from "react-router-dom";
 
 /* Hooks */
 
 import { useFilter } from "../../hooks/useFilter";
 import { useWindowWidth } from "../../hooks/useWindowWidth";
-import { useState } from "react";
 
-/* Images & Icons */
+/* Components */
+
+import { Input } from "../common/input/Input";
+import { NavItems } from "../common/nav-items/NavItems";
+
+/* Assets */
 import logoImg from "../../assets/logo.png";
 import searchIcon from "../../assets/icons/searchIcon.png";
 import menuIcon from "../../assets/icons/menu.png";
 
 /* Styles */
-
 import classes from "./MainNavigation.module.css";
-
-/* React Router */
-
-import { useLocation } from "react-router-dom";
 
 export const MainNavigation: React.FC<{ onOpenMenu: () => void }> = ({
   onOpenMenu,
@@ -30,13 +29,17 @@ export const MainNavigation: React.FC<{ onOpenMenu: () => void }> = ({
   const width = useWindowWidth();
   const location = useLocation();
 
-  /* console.log(location); */
+  const handleIsSearching = () => setIsSearching((prev) => !prev);
 
-  const handleIsSearching = () => {
-    setIsSearching((prev) => !prev);
-  };
+  const renderLogo = () => (
+    <img
+      src={logoImg}
+      alt="Logo de Mundo Gatuno"
+      className={classes["nav__logo"]}
+    />
+  );
 
-  const searchInput = (
+  const renderSearchInput = () => (
     <Input
       type="text"
       placeholder="Busca una arena"
@@ -49,15 +52,7 @@ export const MainNavigation: React.FC<{ onOpenMenu: () => void }> = ({
     />
   );
 
-  const logoImage = (
-    <img
-      src={logoImg}
-      alt="Logo de Mundo Gatuno"
-      className={classes["nav__logo"]}
-    />
-  );
-
-  const xIcon = (
+  const renderXIcon = () => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       onClick={handleIsSearching}
@@ -70,7 +65,7 @@ export const MainNavigation: React.FC<{ onOpenMenu: () => void }> = ({
     </svg>
   );
 
-  const searchIconElement = (
+  const renderSearchIcon = () => (
     <img
       onClick={handleIsSearching}
       src={searchIcon}
@@ -79,7 +74,7 @@ export const MainNavigation: React.FC<{ onOpenMenu: () => void }> = ({
     />
   );
 
-  const menuIconElement = (
+  const renderMenuIcon = () => (
     <img
       src={menuIcon}
       alt="Menu Icon"
@@ -88,61 +83,57 @@ export const MainNavigation: React.FC<{ onOpenMenu: () => void }> = ({
     />
   );
 
+  const isHome = location.pathname === "/";
+  const isMobile = width < 768;
+
+  const renderMobileHome = () =>
+    isSearching ? (
+      <>
+        {renderSearchInput()}
+        {renderXIcon()}
+      </>
+    ) : (
+      <>
+        {renderLogo()}
+        <div>
+          {renderSearchIcon()}
+          {renderMenuIcon()}
+        </div>
+      </>
+    );
+
+  const renderDesktopHome = () => (
+    <>
+      {renderLogo()}
+      {renderSearchInput()}
+      <NavItems />
+    </>
+  );
+
+  const renderMobileOther = () => (
+    <>
+      {renderLogo()}
+      {renderMenuIcon()}
+    </>
+  );
+
+  const renderDesktopOther = () => (
+    <>
+      {renderLogo()}
+      <NavItems />
+    </>
+  );
+
   return (
     <>
       <nav className={classes.nav}>
-        {location.pathname !== "/" ? (
-          <>
-            {width < 768 ? (
-              <>
-                {logoImage}
-                {menuIconElement}
-              </>
-            ) : (
-              <>
-              {logoImage}
-              <NavItems />
-              </>
-            )}
-          </>
-        ) : (
-          <>
-            {width < 768 && (
-              <>
-                {isSearching ? (
-                  <>
-                    {searchInput}
-                    {xIcon}
-                  </>
-                ) : (
-                  <>
-                    {logoImage}
-                    <div>
-                      {searchIconElement}
-                      {menuIconElement}
-                    </div>
-                  </>
-                )}
-              </>
-            )}
-            {width >= 768 && (
-              <>
-                {logoImage}
-                <Input
-                  type="text"
-                  placeholder="Busca una arena"
-                  value={searchText}
-                  onChange={(e) => setSearchText(e.target.value)}
-                  labelHidden
-                  label="Search"
-                  name="search"
-                  className={classes["nav__input"]}
-                />
-                <NavItems />
-              </>
-            )}
-          </>
-        )}
+        {isHome
+          ? isMobile
+            ? renderMobileHome()
+            : renderDesktopHome()
+          : isMobile
+          ? renderMobileOther()
+          : renderDesktopOther()}
       </nav>
     </>
   );
