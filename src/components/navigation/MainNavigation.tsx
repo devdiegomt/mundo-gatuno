@@ -29,8 +29,6 @@ export const MainNavigation: React.FC<{ onOpenMenu: () => void }> = ({
   const width = useWindowWidth();
   const location = useLocation();
 
-  const handleIsSearching = () => setIsSearching((prev) => !prev);
-
   const renderLogo = () => (
     <img
       src={logoImg}
@@ -55,7 +53,10 @@ export const MainNavigation: React.FC<{ onOpenMenu: () => void }> = ({
   const renderXIcon = () => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      onClick={handleIsSearching}
+      onClick={() => {
+        setIsSearching((prev) => !prev);
+        setSearchText("");
+      }}
       width="24"
       height="24"
       viewBox="0 0 24 24"
@@ -67,7 +68,7 @@ export const MainNavigation: React.FC<{ onOpenMenu: () => void }> = ({
 
   const renderSearchIcon = () => (
     <img
-      onClick={handleIsSearching}
+      onClick={() => setIsSearching((prev) => !prev)}
       src={searchIcon}
       alt="Search Icon"
       className={classes["nav__search-icon"]}

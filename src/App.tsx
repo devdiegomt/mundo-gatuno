@@ -1,11 +1,14 @@
 import { FilterProvider } from "./context/FilterProvider";
+import { ProductProvider } from "./context/ProductProvider";
 import { Routes } from "./routes";
 
 function App() {
   return (
-    <FilterProvider>
-      <Routes />
-    </FilterProvider>
+    <ProductProvider>
+      <FilterProvider>
+        <Routes />
+      </FilterProvider>
+    </ProductProvider>
   );
 }
 

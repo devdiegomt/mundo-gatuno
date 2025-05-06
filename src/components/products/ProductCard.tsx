@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ProductProps } from "../../types/products/product";
+import { Product } from "../../types/products/product";
 import classes from "./ProductCard.module.css";
 
 function formatToCOP(number: number) {
@@ -11,8 +11,8 @@ function formatToCOP(number: number) {
   return formatter.format(number);
 }
 
-export const ProductCard: React.FC<{ pro: ProductProps }> = ({
-  pro: { _id, title, price, description, aroma, image, quantity },
+export const ProductCard: React.FC<{ pro: Product.Props }> = ({
+  pro: { title, price, description, aroma, image, quantity },
 }) => {
   return (
     <li className={classes.card}>
@@ -36,7 +36,7 @@ export const ProductCard: React.FC<{ pro: ProductProps }> = ({
           <br />
           {aroma}
         </p>
-        <Link to={`/${_id}`} type="button" className={classes["card__button"]}>
+        <Link to={`/${title}`} type="button" className={classes["card__button"]}>
           Ver Detalles
         </Link>
       </div>
