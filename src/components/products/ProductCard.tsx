@@ -1,15 +1,7 @@
 import { Link } from "react-router-dom";
 import { Product } from "../../types/products/product";
 import classes from "./ProductCard.module.css";
-
-function formatToCOP(number: number) {
-  const formatter = new Intl.NumberFormat("es-CO", {
-    style: "currency",
-    currency: "COP",
-    minimumFractionDigits: 0,
-  });
-  return formatter.format(number);
-}
+import { formatToCOP } from "../../utils/formatToCop";
 
 export const ProductCard: React.FC<{ pro: Product.Props }> = ({
   pro: { title, price, description, aroma, image, quantity },

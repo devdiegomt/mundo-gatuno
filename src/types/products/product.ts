@@ -6,7 +6,7 @@ export namespace Product {
     description: string;
     aroma: string;
     quantity: number;
-    image: string;
+    image?: string;
   }
 
   export interface ContextType {

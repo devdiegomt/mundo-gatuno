@@ -1,0 +1,14 @@
+.product-details {
+    display: flex;
+    justify-content: center;
+    height: fit-content;
+    padding: 20px;
+    background-color: white;
+    margin: 15px;
+    border-radius: 15px;
+    height: 50vh;
+}
+
+.product-details__image-container--img {
+    width: 150px;
+}
