@@ -3,7 +3,7 @@ import { useFilter } from "../../hooks/useFilter";
 import { useProducts } from "../../hooks/useProducts";
 import classes from "./Home.module.css";
 
-export const Home = () => {
+export const HomePage = () => {
   const { searchText } = useFilter();
 
   const { products, loading, error } = useProducts();

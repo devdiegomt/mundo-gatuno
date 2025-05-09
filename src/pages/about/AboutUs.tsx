@@ -1,7 +1,7 @@
 import classes from "./AboutUs.module.css";
 import instagramIcon from "../../assets/social/instagram.png";
 
-export const AboutUs = () => {
+export const AboutUsPage = () => {
   return (
     <section className={classes.aboutus}>
       <h1 className={classes["aboutus__title"]}>Sobre Nosotros</h1>

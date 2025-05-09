@@ -3,7 +3,7 @@ import classes from "./ProductDetails.module.css";
 import { useProducts } from "../../hooks/useProducts";
 import { formatToCOP } from "../../utils/formatToCop";
 
-export const ProductDetails = () => {
+export const ProductDetailsPage = () => {
   const params = useParams();
   const selectedCard = params.productId;
   const { products } = useProducts();

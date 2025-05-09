@@ -5,7 +5,7 @@ import { Sidebar } from "../components/navigation/Sidebar";
 import { useState } from "react";
 import { useWindowWidth } from "../hooks/useWindowWidth";
 
-export const Root = () => {
+export const RootPage = () => {
   const [openMenu, setOpenMenu] = useState(false);
   const width = useWindowWidth();
 
