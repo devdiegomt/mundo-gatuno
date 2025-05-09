@@ -1,36 +1,34 @@
 @import url("https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&family=Tagesschrift&display=swap");
 
-html {
-  height: 100vh;
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  background: #ffe6b2 url("./assets/bgfootprints.png");
 }
 
 #root {
-  height: 100vh;
-  font-family: "Tagesschrift", system-ui;
+  flex: 1;
   display: flex;
   flex-direction: column;
 }
 
-body {
-  margin: 0;
-  height: 100vh;
-  background: #ffe6b2 url("./assets/bgfootprints.png");
+main {
+  flex: 1;
 }
+
 
 footer {
   background-color: #1b4001;
   padding: 15px;
-  color: #ffffff;
+  color: #fff;
   height: 56px;
   display: flex;
   justify-content: center;
   align-items: center;
-  bottom: 0;
 }
-/* 
-.primary-color { color: #F0F0F2; }
-.primary-color { color: #1B4001; }
-.primary-color { color: #467302; }
-.primary-color { color: #72A603; }
-.primary-color { color: #A60303; }
- */

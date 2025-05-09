@@ -14,7 +14,9 @@ export const ProductProvider = ({
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await fetch("https://mundo-gatuno-backend.onrender.com/api/products");
+        const res = await fetch(
+          "https://mundo-gatuno-backend.onrender.com/api/products"
+        );
         if (!res.ok) throw new Error("Error al obtener productos");
         const data = await res.json();
         setProducts(data);

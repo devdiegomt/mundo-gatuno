@@ -1,7 +1,6 @@
 import { Outlet } from "react-router-dom";
 import { MainNavigation } from "../components/navigation/MainNavigation";
 import { Footer } from "../components/footer/Footer";
-import classes from "./Root.module.css";
 import { Sidebar } from "../components/navigation/Sidebar";
 import { useState } from "react";
 import { useWindowWidth } from "../hooks/useWindowWidth";
@@ -17,7 +16,7 @@ export const Root = () => {
     <>
       <MainNavigation onOpenMenu={handleOpenMenu} />
       {openMenu && width < 768 && <Sidebar onOpenMenu={handleOpenMenu} />}
-      <main className={classes.main}>
+      <main>
         <Outlet />
       </main>
       <Footer />
