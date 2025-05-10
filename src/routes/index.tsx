@@ -11,7 +11,7 @@ export const Routes = () => {
       path: "/",
       element: <RootPage />,
       children: [
-        { index: true, element: <HomePage /> },
+        { path: "/", element: <HomePage /> },
         { path: "/about-us", element: <AboutUsPage /> },
         { path: "/:productId", element: <ProductDetailsPage /> },
         { path: "/contact-us", element: <ContactPage /> },

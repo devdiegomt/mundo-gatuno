@@ -4,7 +4,7 @@ import classes from "./ProductCard.module.css";
 import { formatToCOP } from "../../utils/formatToCop";
 
 export const ProductCard: React.FC<{ pro: Product.Props }> = ({
-  pro: { title, price, description, aroma, image, quantity },
+  pro: { _id, title, price, description, aroma, image, quantity },
 }) => {
   return (
     <li className={classes.card}>
@@ -28,7 +28,7 @@ export const ProductCard: React.FC<{ pro: Product.Props }> = ({
           <br />
           {aroma}
         </p>
-        <Link to={`/${title}`} type="button" className={classes["card__button"]}>
+        <Link to={`/${_id}`} type="button" className={classes["card__button"]}>
           Ver Detalles
         </Link>
       </div>
