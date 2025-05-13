@@ -11,7 +11,7 @@ import { useWindowWidth } from "../../hooks/useWindowWidth";
 /* Components */
 
 import { Input } from "../common/input/Input";
-import { NavItems } from "../common/nav-items/NavItems";
+import { NavItem } from "../common/nav-items/NavItem";
 
 /* Assets */
 import logoImg from "../../assets/logo.png";
@@ -20,6 +20,10 @@ import menuIcon from "../../assets/icons/menu.png";
 
 /* Styles */
 import classes from "./MainNavigation.module.css";
+
+/* Config */
+
+import { NAV_ITEMS } from "../../config/navigation";
 
 export const MainNavigation: React.FC<{ onOpenMenu: () => void }> = ({
   onOpenMenu,
@@ -57,8 +61,8 @@ export const MainNavigation: React.FC<{ onOpenMenu: () => void }> = ({
         setIsSearching((prev) => !prev);
         setSearchText("");
       }}
-      width="24"
-      height="24"
+      width="17"
+      height="17"
       viewBox="0 0 24 24"
       className={classes["nav__x-icon"]}
     >
@@ -107,7 +111,15 @@ export const MainNavigation: React.FC<{ onOpenMenu: () => void }> = ({
     <>
       {renderLogo()}
       {renderSearchInput()}
-      <NavItems />
+      <ul className={classes.links}>
+        {NAV_ITEMS.map((item) => (
+          <li>
+            <NavItem to={item.to} end={item.end}>
+              {item.text}
+            </NavItem>
+          </li>
+        ))}
+      </ul>
     </>
   );
 
@@ -121,7 +133,15 @@ export const MainNavigation: React.FC<{ onOpenMenu: () => void }> = ({
   const renderDesktopOther = () => (
     <>
       {renderLogo()}
-      <NavItems />
+      <ul className={classes.links}>
+        {NAV_ITEMS.map((item) => (
+          <li>
+            <NavItem to={item.to} end={item.end}>
+              {item.text}
+            </NavItem>
+          </li>
+        ))}
+      </ul>
     </>
   );
 

@@ -57,7 +57,9 @@
 
 .card__button:hover {
   background-color: #f7dfac;
+  color: #000;
 }
+
 @media (min-width: 768px) {
   .card {
     width: 500px;
