@@ -1,0 +1,57 @@
+.contact {
+  border-radius: 15px;
+  margin: 50px;
+  background-color: #f9f9f9;
+  padding: 4rem 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  max-width: 700px;
+  width: 100%;
+  text-align: center;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 1.5rem;
+}
+
+.text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #444;
+  margin-bottom: 2rem;
+}
+
+.info {
+  background-color: #f3f3f3;
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: left;
+  color: #333;
+  font-size: 1.05rem;
+  margin-bottom: 2rem;
+}
+
+.info p {
+  margin: 0.8rem 0;
+}
+
+.info a {
+  color: #1a73e8;
+  text-decoration: none;
+}
+
+.info a:hover {
+  text-decoration: underline;
+}
+
+.cta {
+  font-weight: 600;
+  color: #222;
+  font-size: 1.1rem;
+}
