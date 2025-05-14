@@ -4,5 +4,7 @@ export const formatToCOP = (number: number) => {
     currency: "COP",
     minimumFractionDigits: 0,
   });
-  return formatter.format(number);
+
+  const formatted = formatter.format(number);
+  return formatted.replace(/\u00A0/g, "");
 };
