@@ -19,9 +19,15 @@ export const HomePage = () => {
       <section>
         <h1 className={classes.title}>Arena disponible</h1>
         <ul className={classes.list}>
-          {filteredCards.map((product) => (
-            <ProductCard key={product._id} pro={product} />
-          ))}
+          {filteredCards.map((product) =>
+            product.presentations.map((presentation, i) => (
+              <ProductCard
+                key={`${product._id}-${i}`}
+                pro={product}
+                pre={presentation}
+              />
+            ))
+          )}
         </ul>
         {filteredCards.length === 0 && (
           <p className={classes.empty}>

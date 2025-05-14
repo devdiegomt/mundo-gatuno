@@ -1,5 +1,5 @@
 export namespace Product {
-  interface Presentation {
+  export interface Presentation {
     weight: string;
     price: number;
     quantity: number;

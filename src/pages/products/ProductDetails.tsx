@@ -24,6 +24,8 @@ export const ProductDetailsPage = () => {
   }
 
   const { title, description, aroma, presentations } = productDetails;
+  const type = title.split(" ")[0] === "Arena" ? "aroma" : "sabor";
+  const titleForWhatsapp = title.split(" ").slice(0, 2).join(" ");
 
   const selectedWeight = params.selectedWeight;
 
@@ -99,7 +101,7 @@ export const ProductDetailsPage = () => {
               </ul>
               <div className={classes["product-details__button"]}>
                 <Link
-                  to={`https://wa.me/573112095231?text=Hola%2C%20estoy%20interesado%2Fa%20en%20el%20producto%20${title}%20con%20aroma%20a%20${aroma}%20y%20peso%20${selectedWeight}%20por%20${formatToCOP(
+                  to={`https://wa.me/573112095231?text=Hola%2C%20estoy%20interesado%2Fa%20en%20el%20producto%20${titleForWhatsapp}%20con%20${type}%20a%20${aroma}%20y%20peso%20${selectedWeight}%20por%20${formatToCOP(
                     selectedPresentation.price
                   )}.%20%C2%BFA%C3%BAn%20lo%20tienes%20disponible%3F
               `}

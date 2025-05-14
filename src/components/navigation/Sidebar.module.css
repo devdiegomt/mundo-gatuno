@@ -47,3 +47,11 @@
   cursor: pointer;
   filter: invert(1);
 }
+
+@media (max-width: 768px) {
+  .sidebar__links {
+    flex-direction: column;
+    display: flex;
+    gap: 15px;
+  }
+}
