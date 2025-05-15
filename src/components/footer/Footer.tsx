@@ -1,7 +1,8 @@
 export const Footer = () => {
   return (
     <footer className="footer">
-      Logixel 2025 &copy; - Todos los derechos reservados.
+      Developed by <a href="https://devdiegomt.vercel.app/">Diego Mayorga</a>.
+      &copy; - Todos los derechos reservados.
     </footer>
   );
 };
