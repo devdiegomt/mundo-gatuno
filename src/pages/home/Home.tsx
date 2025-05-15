@@ -11,7 +11,7 @@ export const HomePage = () => {
   const filteredCards = products.filter((product) =>
     product.title.toLowerCase().includes(searchText.toLowerCase())
   );
-  if (loading) return <p>Cargando...</p>;
+  if (loading) return <div className={classes.loader} />;
   if (error) return <p>{error}</p>;
 
   return (
