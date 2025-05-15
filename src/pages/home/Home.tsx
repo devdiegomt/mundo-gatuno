@@ -11,7 +11,12 @@ export const HomePage = () => {
   const filteredCards = products.filter((product) =>
     product.title.toLowerCase().includes(searchText.toLowerCase())
   );
-  if (loading) return <div className={classes.loader} />;
+  if (loading)
+    return (
+      <div className={classes.loader}>
+        <div className={classes["loader__spinner"]} />
+      </div>
+    );
   if (error) return <p>{error}</p>;
 
   return (
