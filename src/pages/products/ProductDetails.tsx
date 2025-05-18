@@ -101,7 +101,7 @@ export const ProductDetailsPage = () => {
               </ul>
               <div className={classes["product-details__button"]}>
                 <Link
-                  to={`https://wa.me/573112095231?text=Hola%2C%20estoy%20interesado%2Fa%20en%20el%20producto%20${titleForWhatsapp}%20con%20${type}%20a%20${aroma}%20y%20peso%20${selectedWeight}%20por%20${formatToCOP(
+                  to={`https://wa.me/573209097278?text=Hola%2C%20estoy%20interesado%2Fa%20en%20el%20producto%20${titleForWhatsapp}%20con%20${type}%20a%20${aroma}%20y%20peso%20${selectedWeight}%20por%20${formatToCOP(
                     selectedPresentation.price
                   )}.%20%C2%BFA%C3%BAn%20lo%20tienes%20disponible%3F
               `}
