@@ -3,7 +3,7 @@ import classes from "./Footer.module.css";
 export const Footer = () => {
   return (
     <footer className="footer">
-      Developed by
+      Desarrollado por
       <b>
         <a
           className={classes["footer__link"]}
@@ -12,7 +12,6 @@ export const Footer = () => {
           Diego Mayorga
         </a>
       </b>
-      .
     </footer>
   );
 };

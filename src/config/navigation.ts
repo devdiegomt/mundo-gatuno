@@ -2,16 +2,16 @@ export const NAV_ITEMS = [
   {
     to: "/",
     end: true,
-    text: "Home",
+    text: "Productos",
   },
   {
     to: "/about-us",
     end: false,
-    text: "About",
+    text: "Sobre nosotros",
   },
   {
     to: "/contact-us",
     end: false,
-    text: "Contact",
+    text: "Contáctanos",
   },
 ];

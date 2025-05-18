@@ -17,6 +17,7 @@
   padding-left: 0;
   width: min-content;
   align-self: center;
+  width: max-content;
 }
 
 .sidebar__hidden {

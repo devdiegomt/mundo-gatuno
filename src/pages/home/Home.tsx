@@ -22,7 +22,7 @@ export const HomePage = () => {
   return (
     <>
       <section>
-        <h1 className={classes.title}>Arena disponible</h1>
+        <h1 className={classes.title}>Productos disponibles</h1>
         <ul className={classes.list}>
           {filteredCards.map((product) =>
             product.presentations.map((presentation, i) => (
