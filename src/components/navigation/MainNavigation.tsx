@@ -14,7 +14,7 @@ import { Input } from "../common/input/Input";
 import { NavItem } from "../common/nav-items/NavItem";
 
 /* Assets */
-import logoImg from "../../assets/logo.png";
+import logoImg from "../../assets/logoNav.png";
 import searchIcon from "../../assets/icons/searchIcon.png";
 import menuIcon from "../../assets/icons/menu.png";
 
@@ -43,7 +43,7 @@ export const MainNavigation: React.FC<{ onOpenMenu: () => void }> = ({
 
   const renderSearchInput = () => (
     <Input
-      type="text"
+      type="search"
       placeholder="Busca una arena"
       value={searchText}
       onChange={(e) => setSearchText(e.target.value)}

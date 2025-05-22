@@ -11,8 +11,8 @@
 
 .nav__logo {
   height: inherit;
-  background-color: white;
-  border-radius: 50%;
+  /* background-color: white; */
+  /* border-radius: 50%; */
 }
 
 .nav__input {

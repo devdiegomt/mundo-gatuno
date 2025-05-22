@@ -6,8 +6,10 @@
 .list {
   list-style: none;
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   padding-left: 0;
+  margin-bottom: 10px;
 }
 
 .empty {
@@ -41,8 +43,14 @@
   }
 }
 
-@media (min-width: 1450px) {
+@media (min-width: 1230px) {
   .list {
-    margin: 0 15%;
+    /* margin: 0 15%; */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 50px;
+    width: 1000px;
+    margin: 0 auto;
+    margin-bottom: 25px;
   }
 }
