@@ -8,6 +8,8 @@ export const Footer = () => {
         <a
           className={classes["footer__link"]}
           href="https://devdiegomt.vercel.app/"
+          target="_blank"
+          rel="noopener noreferrer"
         >
           Diego Mayorga
         </a>
