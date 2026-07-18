@@ -1,23 +1,29 @@
 .links {
   display: flex;
   list-style: none;
-  gap: 10px;
+  gap: 22px;
   padding-left: 0;
 }
 
 .link {
   text-decoration: none;
-  color: #505050;
-  font-size: 1.2rem;
-  font-weight: bold;
+  color: var(--arena);
+  font-size: 1.05rem;
+  font-weight: 700;
 }
 
 .link:hover {
-  color: #000;
+  color: #ffffff;
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 @media (max-width: 768px) {
   .links {
     flex-direction: column;
+  }
+
+  .link {
+    color: var(--bosque);
   }
 }

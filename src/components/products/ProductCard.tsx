@@ -1,14 +1,15 @@
 import { useState } from "react";
-import type { productProps } from "../../types/products/product";
+import { productProps } from "../../types/products/product";
 import classes from "./ProductCard.module.css";
 
+const INSTAGRAM_URL = "https://www.instagram.com/mundogatunozipa/";
+
 function formatToCOP(number: number) {
-  const formatter = new Intl.NumberFormat("es-CO", {
+  return new Intl.NumberFormat("es-CO", {
     style: "currency",
     currency: "COP",
     minimumFractionDigits: 0,
-  });
-  return formatter.format(number);
+  }).format(number);
 }
 
 export const ProductCard: React.FC<productProps> = ({
@@ -19,6 +20,8 @@ export const ProductCard: React.FC<productProps> = ({
 
   if (!selected) return null;
 
+  const outOfStock = selected.quantity <= 0;
+
   return (
     <li className={classes.card}>
       {selected.image && (
@@ -27,13 +30,14 @@ export const ProductCard: React.FC<productProps> = ({
             src={selected.image}
             alt={`${title} - ${selected.weight}`}
             className={classes.image}
+            loading="lazy"
           />
         </div>
       )}
       <div className={classes.info}>
-        <h3>{title}</h3>
-        <p>{description}</p>
-        <p>Aroma: {aroma}</p>
+        <h2 className={classes.name}>{title}</h2>
+        <p className={classes.description}>{description}</p>
+        <p className={classes.aroma}>Aroma: {aroma}</p>
 
         {presentations.length > 1 && (
           <div
@@ -58,16 +62,25 @@ export const ProductCard: React.FC<productProps> = ({
           </div>
         )}
 
-        <p className={classes.price}>{formatToCOP(selected.price)}</p>
-        <p>
-          {selected.quantity > 0 ? (
-            <>
-              En stock: <b>{selected.quantity}</b>
-            </>
-          ) : (
-            <b>Agotado</b>
+        <p className={classes.price}>
+          {formatToCOP(selected.price)}
+          {presentations.length === 1 && (
+            <span className={classes["single-weight"]}> · {selected.weight}</span>
           )}
         </p>
+
+        {outOfStock ? (
+          <p className={classes.soldout}>Agotado</p>
+        ) : (
+          <a
+            href={INSTAGRAM_URL}
+            target="_blank"
+            rel="noopener"
+            className={classes.order}
+          >
+            Pedir por Instagram
+          </a>
+        )}
       </div>
     </li>
   );

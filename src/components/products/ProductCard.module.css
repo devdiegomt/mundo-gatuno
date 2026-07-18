@@ -1,55 +1,49 @@
 .card {
   display: flex;
-  background-color: white;
-  align-items: center;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  width: 90%;
-  max-width: 500px;
-  margin: 10px auto;
-  justify-content: center;
+  flex-direction: column;
+  background-color: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .card:hover {
-  transform: scale(1.05);
-  transition: transform 0.3s ease;
-}
-
-.card .image {
-  height: 200px;
-  object-fit: cover;
-  border-radius: 10px 10px 0 0;
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(27, 64, 1, 0.12);
 }
 
 .image-container {
-  padding: 10px;
+  background: var(--crema);
+  display: flex;
+  justify-content: center;
+  padding: 16px;
+}
+
+.image {
+  height: 170px;
+  object-fit: contain;
 }
 
 .info {
-  text-align: center;
   display: flex;
-  width: 50%;
   flex-direction: column;
-  padding: 10px;
+  padding: 16px 18px 18px;
+  text-align: center;
+  gap: 6px;
+  flex: 1;
 }
 
-.info h3 {
+.name {
   font-size: 18px;
-  margin-bottom: 5px;
+  color: var(--bosque);
+  margin: 0;
 }
 
-.info p {
+.description {
   font-size: 14px;
-  color: #666;
-  margin-bottom: 10px;
-}
-
-@media (min-width: 768px) {
-  .card {
-    width: 500px;
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
+  color: var(--tinta-suave);
+  margin: 0;
 }
 
 .weights {
@@ -57,26 +51,64 @@
   flex-wrap: wrap;
   gap: 6px;
   justify-content: center;
-  margin-bottom: 10px;
+  margin: 6px 0;
 }
 
 .weight {
-  border: 1px solid #ccc;
-  background-color: white;
-  border-radius: 6px;
-  padding: 4px 10px;
+  border: 1.5px solid var(--hoja);
+  background-color: var(--superficie);
+  color: var(--hoja);
+  border-radius: 999px;
+  padding: 4px 12px;
   font-size: 13px;
+  font-weight: 700;
+  font-family: inherit;
   cursor: pointer;
 }
 
 .weight--selected {
-  border-color: #333;
-  background-color: #333;
+  background-color: var(--hoja);
   color: white;
 }
 
 .price {
-  font-size: 16px;
-  font-weight: bold;
-  color: #333 !important;
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--tinta);
+  margin: 4px 0 2px;
+}
+
+.single-weight {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--tinta-suave);
+}
+
+.soldout {
+  color: var(--rojo);
+  font-weight: 800;
+  margin: 4px 0 0;
+}
+
+.order {
+  margin-top: auto;
+  background: var(--hoja);
+  color: white;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 14px;
+  border-radius: 999px;
+  padding: 10px 16px;
+  transition: background 0.15s ease;
+}
+
+.order:hover {
+  background: var(--bosque);
+}
+
+.aroma {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--hoja);
+  margin: 0;
 }

@@ -1,36 +1,67 @@
-@import url("https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&family=Tagesschrift&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Tagesschrift&display=swap");
+
+:root {
+  --crema: #fff6e3;
+  --arena: #ffe6b2;
+  --hoja: #467302;
+  --bosque: #1b4001;
+  --tinta: #33291c;
+  --tinta-suave: #6f6552;
+  --rojo: #a60303;
+  --superficie: #ffffff;
+  --borde: #ecdfc2;
+}
+
+* {
+  box-sizing: border-box;
+}
 
 html {
-  height: 100vh;
+  height: 100%;
 }
 
 #root {
-  height: 100vh;
-  font-family: "Tagesschrift", system-ui;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  font-family: "Nunito", system-ui, sans-serif;
+  color: var(--tinta);
+}
+
+#root main {
+  flex: 1;
 }
 
 body {
   margin: 0;
-  height: 100vh;
-  background: #ffe6b2 url("./assets/bgfootprints.png");
+  background: var(--crema) url("./assets/bgfootprints.png");
+}
+
+h1,
+h2 {
+  font-family: "Tagesschrift", "Nunito", system-ui;
+  font-weight: 400;
 }
 
 footer {
-  background-color: #1b4001;
+  background-color: var(--bosque);
   padding: 15px;
-  color: #ffffff;
-  height: 56px;
+  color: var(--arena);
+  min-height: 56px;
   display: flex;
   justify-content: center;
   align-items: center;
-  bottom: 0;
+  font-size: 14px;
 }
-/* 
-.primary-color { color: #F0F0F2; }
-.primary-color { color: #1B4001; }
-.primary-color { color: #467302; }
-.primary-color { color: #72A603; }
-.primary-color { color: #A60303; }
- */
+
+:focus-visible {
+  outline: 2px solid var(--hoja);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
