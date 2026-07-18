@@ -51,3 +51,32 @@
     flex-wrap: wrap;
   }
 }
+
+.weights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.weight {
+  border: 1px solid #ccc;
+  background-color: white;
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.weight--selected {
+  border-color: #333;
+  background-color: #333;
+  color: white;
+}
+
+.price {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333 !important;
+}
