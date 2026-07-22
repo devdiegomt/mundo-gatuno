@@ -1,0 +1,66 @@
+.contact {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 40px 20px 56px;
+  text-align: center;
+}
+
+.title {
+  color: var(--bosque);
+  font-size: 28px;
+  margin-bottom: 14px;
+}
+
+.text {
+  color: var(--tinta-suave);
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 28px;
+}
+
+.channels {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: center;
+}
+
+.channel {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 16px;
+  color: white;
+  border-radius: 999px;
+  padding: 13px 26px;
+  width: 100%;
+  max-width: 320px;
+  transition: transform 0.15s ease, filter 0.15s ease;
+}
+
+.channel:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+}
+
+.channel--whatsapp {
+  background: #25d366;
+}
+
+.channel--instagram {
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+}
+
+.icon {
+  width: 22px;
+  height: 22px;
+}
+
+.iconImg {
+  width: 22px;
+  height: 22px;
+  filter: brightness(0) invert(1);
+}
