@@ -16,6 +16,8 @@
 .logoLink {
   display: flex;
   flex-shrink: 0;
+  background-color: var(--arena);
+  border-radius: 12px;
 }
 
 .logo {
