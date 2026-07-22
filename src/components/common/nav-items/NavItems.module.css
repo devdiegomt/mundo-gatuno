@@ -1,8 +1,10 @@
 .links {
   display: flex;
+  align-items: center;
   list-style: none;
   gap: 22px;
   padding-left: 0;
+  margin: 0;
 }
 
 .link {
@@ -18,12 +20,15 @@
   text-underline-offset: 4px;
 }
 
+.active {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
 @media (max-width: 768px) {
   .links {
     flex-direction: column;
-  }
-
-  .link {
-    color: var(--bosque);
+    align-items: flex-start;
+    gap: 14px;
   }
 }

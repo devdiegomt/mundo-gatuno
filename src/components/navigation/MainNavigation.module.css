@@ -1,56 +1,102 @@
-.nav {
-  display: flex;
-  justify-content: space-between;
-  gap: 16px;
-  padding: 0 4%;
-  align-items: center;
+.header {
   background-color: var(--bosque);
-  height: 60px;
   position: sticky;
   top: 0;
   z-index: 10;
 }
 
-.nav__logo {
-  height: 52px;
-  object-fit: contain;
-  background-color: var(--arena);
-  border-radius: 15px;
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 8px 4%;
+  min-height: 60px;
 }
 
-.nav__input {
-  background-color: var(--superficie);
-  height: 38px;
-  width: 35%;
-  border: none;
+.logoLink {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.logo {
+  height: 44px;
+  object-fit: contain;
+}
+
+/* Buscador: crece para ocupar el espacio libre entre logo y enlaces */
+.search {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--superficie);
   border-radius: 999px;
-  padding: 0 16px;
+  padding: 0 14px;
+  max-width: 380px;
+}
+
+.searchIcon {
+  width: 16px;
+  height: 16px;
+  opacity: 0.5;
+}
+
+.searchInput {
+  border: none;
+  outline: none;
+  background: transparent;
+  height: 38px;
+  width: 100%;
   font-family: inherit;
   font-size: 15px;
+  color: var(--tinta);
 }
 
-.nav__input::placeholder {
+.searchInput::placeholder {
   color: var(--tinta-suave);
-  font-size: 14px;
 }
 
-.nav__search-icon,
-.nav__menu-icon,
-.nav__x-icon {
+/* Empuja los enlaces/menú a la derecha cuando no hay buscador (páginas != home) */
+.desktopLinks {
+  margin-left: auto;
+}
+
+.menuButton {
+  margin-left: auto;
+  display: none;
+  background: none;
+  border: none;
   cursor: pointer;
+  padding: 6px;
 }
 
-.nav__x-icon {
-  fill: var(--arena);
+.menuIcon {
+  width: 26px;
+  height: 26px;
 }
 
+.mobilePanel {
+  display: none;
+}
+
+/* --- Móvil: los enlaces se colapsan tras el botón de menú --- */
 @media (max-width: 768px) {
-  .nav__input {
-    margin: 5px;
-    width: 85%;
+  .desktopLinks {
+    display: none;
   }
 
-  .nav__menu-icon {
-    margin-left: 15px;
+  .menuButton {
+    display: block;
+  }
+
+  .search {
+    max-width: none;
+  }
+
+  .mobilePanel {
+    display: block;
+    background: var(--bosque);
+    padding: 8px 4% 16px;
+    border-top: 1px solid rgba(255, 230, 178, 0.2);
   }
 }

@@ -1,149 +1,73 @@
-/* Components */
-
-import { Input } from "../common/input/Input";
-import { NavItems } from "../common/nav-items/NavItems";
-
-/* Hooks */
+import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 import { useFilter } from "../../hooks/useFilter";
-import { useWindowWidth } from "../../hooks/useWindowWidth";
-import { useState } from "react";
+import { NavItems } from "../common/nav-items/NavItems";
 
-/* Images & Icons */
 import logoImg from "../../assets/logo.png";
 import searchIcon from "../../assets/icons/searchIcon.png";
 import menuIcon from "../../assets/icons/menu.png";
 
-/* Styles */
-
 import classes from "./MainNavigation.module.css";
 
-/* React Router */
-
-import { useLocation } from "react-router-dom";
-
-export const MainNavigation: React.FC<{ onOpenMenu: () => void }> = ({
-  onOpenMenu,
-}) => {
+export const MainNavigation = () => {
   const { searchText, setSearchText } = useFilter();
-  const [isSearching, setIsSearching] = useState(false);
-  const width = useWindowWidth();
+  const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
 
-  /* console.log(location); */
+  const isHome = location.pathname === "/";
 
-  const handleIsSearching = () => {
-    setIsSearching((prev) => !prev);
-  };
-
-  const searchInput = (
-    <Input
-      type="text"
-      placeholder="Busca una arena"
-      value={searchText}
-      onChange={(e) => setSearchText(e.target.value)}
-      labelHidden
-      label="Search"
-      name="search"
-      className={classes["nav__input"]}
-    />
-  );
-
-  const logoImage = (
-    <img
-      src={logoImg}
-      alt="Logo de Mundo Gatuno"
-      className={classes["nav__logo"]}
-    />
-  );
-
-  const xIcon = (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      onClick={handleIsSearching}
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      className={classes["nav__x-icon"]}
-    >
-      <path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z" />
-    </svg>
-  );
-
-  const searchIconElement = (
-    <img
-      onClick={handleIsSearching}
-      src={searchIcon}
-      alt="Search Icon"
-      className={classes["nav__search-icon"]}
-    />
-  );
-
-  const menuIconElement = (
-    <img
-      src={menuIcon}
-      alt="Menu Icon"
-      className={classes["nav__menu-icon"]}
-      onClick={onOpenMenu}
-    />
-  );
+  // Cierra el menú móvil cada vez que cambia la ruta. Un solo estado,
+  // sin depender del ancho de ventana: evita el "menú fantasma" al rotar
+  // el dispositivo o pasar a escritorio.
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [location.pathname]);
 
   return (
-    <>
+    <header className={classes.header}>
       <nav className={classes.nav}>
-        {location.pathname !== "/" ? (
-          <>
-            {width < 768 ? (
-              <>
-                {logoImage}
-                {menuIconElement}
-              </>
-            ) : (
-              <>
-              {logoImage}
-              <NavItems />
-              </>
-            )}
-          </>
-        ) : (
-          <>
-            {width < 768 && (
-              <>
-                {isSearching ? (
-                  <>
-                    {searchInput}
-                    {xIcon}
-                  </>
-                ) : (
-                  <>
-                    {logoImage}
-                    <div>
-                      {searchIconElement}
-                      {menuIconElement}
-                    </div>
-                  </>
-                )}
-              </>
-            )}
-            {width >= 768 && (
-              <>
-                {logoImage}
-                <Input
-                  type="text"
-                  placeholder="Busca una arena"
-                  value={searchText}
-                  onChange={(e) => setSearchText(e.target.value)}
-                  labelHidden
-                  label="Search"
-                  name="search"
-                  className={classes["nav__input"]}
-                />
-                <NavItems />
-              </>
-            )}
-          </>
+        <Link to="/" className={classes.logoLink} aria-label="Ir al inicio">
+          <img src={logoImg} alt="Mundo Gatuno" className={classes.logo} />
+        </Link>
+
+        {isHome && (
+          <div className={classes.search}>
+            <img src={searchIcon} alt="" className={classes.searchIcon} />
+            <input
+              type="text"
+              placeholder="Busca una arena"
+              value={searchText}
+              onChange={(e) => setSearchText(e.target.value)}
+              className={classes.searchInput}
+              aria-label="Buscar productos"
+            />
+          </div>
         )}
+
+        {/* Enlaces en escritorio */}
+        <div className={classes.desktopLinks}>
+          <NavItems />
+        </div>
+
+        {/* Botón de menú en móvil */}
+        <button
+          type="button"
+          className={classes.menuButton}
+          onClick={() => setMenuOpen((prev) => !prev)}
+          aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
+          aria-expanded={menuOpen}
+        >
+          <img src={menuIcon} alt="" className={classes.menuIcon} />
+        </button>
       </nav>
-    </>
+
+      {/* Panel desplegable en móvil */}
+      {menuOpen && (
+        <div className={classes.mobilePanel}>
+          <NavItems />
+        </div>
+      )}
+    </header>
   );
 };

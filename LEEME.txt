@@ -1,0 +1,13 @@
+Rediseño del nav responsive de la tienda.
+
+ARCHIVOS A REEMPLAZAR:
+  src/pages/Root.tsx
+  src/components/navigation/MainNavigation.tsx
+  src/components/navigation/MainNavigation.module.css
+  src/components/common/nav-items/NavItems.tsx
+  src/components/common/nav-items/NavItems.module.css
+
+ARCHIVOS A ELIMINAR (ya no se usan):
+  src/hooks/useWindowWidth.ts
+  src/components/navigation/Sidebar.tsx
+  src/components/navigation/Sidebar.module.css
